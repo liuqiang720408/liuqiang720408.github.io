@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Liuqiang720408.GitHub.io by liuqiang720408</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/liuqiang720408">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Liuqiang720408.GitHub.io</h1>
+            <h2>前端小强</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <div id="no-downloads">
+        <span class="inner">
+        </span>
+      </div>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="liuqiang720408githubio" class="anchor" href="#liuqiang720408githubio" aria-hidden="true"><span class="octicon octicon-link"></span></a>liuqiang720408.github.io</h1>
+
+<p>前端小强
+var fs=require('fs'),
+    stdin=process.stdin,
+    stdout=process.stdout;
+var stats=[];
+console.log(fs.readdirSync(__dirname));
+//获取当前目录的文件列表
+console.log(fs.readdirSync('.'));
+//获取当前目录的文件列表
+fs.readdir(__dirname,function(err,files){
+    console.log(files);
+    /<em>for(var i=0;i&lt;files.length;i++){
+        if(files[i].indexOf("age")!=-1){
+            console.log(files[i]);
+        }
+    }</em>/
+});
+fs.readdir(process.cwd(),function(err,files){
+    console.log('');</p>
+
+<pre><code>if(!files.length){
+    return console.log('\033[31m 没有文件要显示!\033[30m\n');
+}
+console.log('select which file or directory yu want to see\n');
+    function file(i){
+        var filename=files[i];
+        fs.stat(__dirname+'/'+filename,function(err,stat){
+            stats[i]=stat;//把每一次的文件或者目录放到数组中
+            if(stat.isDirectory()){
+                console.log(''+i+'\033[36m'+filename+'/\033[39m');
+            }else {
+                console.log('' + i+
+                '\033[90m' + filename + '\033[39m')
+            }
+            i++;
+            if(i==files.length){
+               read();
+            }else{
+                file(i);
+            }
+        })
+    }
+function read(){
+    console.log('');
+    stdout.write('\033[33mEnter your choice:\33[39m');
+    stdin.resume();//stdin流默认的状态是暂停的,resume等待用户输入。
+    stdin.setEncoding('utf8');
+    stdout.setEncoding('utf8');
+    //读取用户输入后󣬽接下来要做的就是根据用户输入作出相应处理。
+    //需要选择要读取的文件Ϳ就开始监听其data事件
+    stdin.on('data',option);
+
+}
+function option(data){
+    var  filename=files[Number(data)];
+    if(!filename){//判断用户输入序号对应的文件是否存在
+        stdout.write("\033[31mEnter your choice:\033[39m");
+    }else{
+        stdin.pause();
+        if(stats[Number(data)].isDirectory()){
+            fs.readdir(__dirname+'/'+filename,function(err,files){
+                console.log('');
+                console.log('(当前有'+files.length+'个文件)');
+                //遍历文件目录下的文件
+                files.forEach(function(file){
+                    console.log('-'+file);
+                })
+            })
+
+        }else{
+            fs.readFile(__dirname+"/"+filename,'utf8',
+                function(err,data){
+                    //读文件中的内容
+                    console.log('');
+                    console.log('\033[90m'+
+                        data.replace(/(.*)/g,'$1')+
+                        '\033[39m');
+                });
+        }
+
+    }
+}
+file(0);
+</code></pre>
+
+<p>});</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>Projects by <a href="https://github.com/liuqiang720408">liuqiang720408</a> can be found on <a href="https://github.com/liuqiang720408">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
